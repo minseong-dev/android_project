@@ -1,0 +1,893 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.example.rentalfarm\">\n\n    <application\n        android:allowBackup=\"true\"\n        android:icon=\"@mipmap/ic_launcher\"\n        android:label=\"@string/app_name\"\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\n        android:supportsRtl=\"true\"\n        android:theme=\"@style/Theme.RentalFarm\">\n        <activity android:name=\".MainActivity\">\n            <intent-filter>\n                <action android:name=\"android.intent.action.MAIN\" />\n\n                <category android:name=\"android.intent.category.LAUNCHER\" />\n            </intent-filter>\n        </activity>\n    </application>\n\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ app/src/main/AndroidManifest.xml	(date 1621748732532)
+@@ -16,6 +16,8 @@
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+         </activity>
++        <activity android:name=".SignupActivity" />
++        <activity android:name=".SectionActivity" />
+     </application>
+ 
+ </manifest>
+\ No newline at end of file
+Index: app/src/main/java/com/example/rentalfarm/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.rentalfarm;\n\nimport androidx.appcompat.app.AppCompatActivity;\n\nimport android.os.Bundle;\n\npublic class MainActivity extends AppCompatActivity {\n\n    @Override\n    protected void onCreate(Bundle savedInstanceState) {\n        super.onCreate(savedInstanceState);\n        setContentView(R.layout.activity_main);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/rentalfarm/MainActivity.java	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ app/src/main/java/com/example/rentalfarm/MainActivity.java	(date 1621754425164)
+@@ -2,13 +2,36 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
+ 
+ public class MainActivity extends AppCompatActivity {
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_main);
++        setContentView(R.layout.login);
++        
++        // 로그인 > 회원가입
++        Button BtnSignup1 = (Button) findViewById(R.id.BtnSignup1);
++        BtnSignup1.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent = new Intent(getApplicationContext(), SignupActivity.class);
++                startActivity(intent);
++            }
++        });
++
++        //로그인 > 농장구역
++        Button BtnLogin = (Button) findViewById(R.id.BtnLogin);
++        BtnLogin.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                Intent intent = new Intent(getApplicationContext(), SectionActivity.class);
++                startActivity(intent);
++            }
++        });
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/login.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\n<androidx.constraintlayout.widget.ConstraintLayout\n    xmlns:android=\"http://schemas.android.com/apk/res/android\" android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\">\n\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/login.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ app/src/main/res/layout/login.xml	(date 1621748732546)
+@@ -1,6 +1,93 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout
+-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+-    android:layout_height="match_parent">
++<LinearLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical"
++    android:layout_weight="1">
++
++    <TextView
++        android:id="@+id/Tittle_Login"
++        android:layout_height="wrap_content"
++        android:layout_width="match_parent"
++        android:gravity="center"
++        android:paddingTop="20dp"
++        android:paddingBottom="20dp"
++        android:background="@color/white"
++        android:elevation="5dp"
++        android:text="로그인"
++        android:textStyle="bold"
++        android:textSize="20dp" />
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_weight="7"
++        android:gravity="bottom"
++        android:layout_marginLeft="20dp"
++        android:layout_marginRight="20dp">
++
++        <TextView
++            android:id="@+id/ID"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="아이디"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/EditID"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/ID"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:paddingLeft="20dp"
++            android:background="@drawable/edge" />
++
++        <TextView
++            android:id="@+id/PW"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/EditID"
++            android:text="비밀번호"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/EditPW"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/PW"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:paddingLeft="20dp"
++            android:background="@drawable/edge" />
++    </RelativeLayout>
+ 
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_weight="7"
++        android:gravity="center"
++        android:layout_marginLeft="20dp"
++        android:layout_marginRight="20dp">
++        <Button
++            android:id="@+id/BtnLogin"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:background="@drawable/basic_btn"
++            android:text="로그인"
++            android:textColor="@color/white"
++            android:textSize="15dp" />
++
++        <Button
++            android:id="@+id/BtnSignup1"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/BtnLogin"
++            android:layout_marginTop="10dp"
++            android:background="@drawable/basic_btn"
++            android:text="회원가입"
++            android:textColor="@color/white"
++            android:textSize="15dp" />
++
++    </RelativeLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ app/src/main/res/layout/activity_main.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
+@@ -1,18 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    tools:context=".MainActivity">
+-
+-    <TextView
+-        android:layout_width="wrap_content"
+-        android:layout_height="wrap_content"
+-        android:text="Hello World!"
+-        app:layout_constraintBottom_toBottomOf="parent"
+-        app:layout_constraintLeft_toLeftOf="parent"
+-        app:layout_constraintRight_toRightOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
+-
+-</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/signup.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/signup.xml	(date 1621748732518)
++++ app/src/main/res/layout/signup.xml	(date 1621748732518)
+@@ -0,0 +1,162 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:layout_weight="1"
++    android:orientation="vertical">
++
++    <FrameLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:elevation="5dp">
++        <TextView
++            android:id="@+id/Tittle_SignUp"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:gravity="center"
++            android:paddingTop="20dp"
++            android:paddingBottom="20dp"
++            android:text="회원가입"
++            android:textSize="20dp"
++            android:textStyle="bold" />
++        <Button
++            android:id="@+id/X"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="left|center_vertical"
++            android:layout_marginLeft="10dp"
++            android:background="#00ff0000"
++            android:text="X"
++            android:textColor="#606060"
++            android:textSize="20dp" />
++    </FrameLayout>
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_marginLeft="20dp"
++        android:layout_marginTop="3dp"
++        android:layout_marginRight="20dp"
++        android:layout_weight="1"
++        android:gravity="center">
++
++        <TextView
++            android:id="@+id/Signup_Name"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="이름"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/Signup_EditName"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/Signup_Name"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:background="@drawable/edge"
++            android:paddingLeft="20dp" />
++
++        <TextView
++            android:id="@+id/Signup_ID"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/Signup_EditName"
++            android:text="아이디"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/Signup_EditID"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/Signup_ID"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:background="@drawable/edge"
++            android:paddingLeft="20dp" />
++
++        <TextView
++            android:id="@+id/Signup_PW"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/Signup_EditID"
++            android:text="비밀번호"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/Signup_EditPW"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/Signup_PW"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:background="@drawable/edge"
++            android:paddingLeft="20dp" />
++
++        <TextView
++            android:id="@+id/Signup_PN"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/Signup_EditPW"
++            android:text="전화번호"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/Signup_EditPN"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/Signup_PN"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:background="@drawable/edge"
++            android:hint="-없이 번호 입력"
++            android:paddingLeft="20dp"
++            android:textSize="15dp" />
++
++        <TextView
++            android:id="@+id/Signup_Type"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/Signup_EditPN"
++            android:text="타입 선택"
++            android:textColor="@color/black" />
++
++        <TableLayout
++            android:id="@+id/checkbox"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/Signup_Type"
++            android:layout_marginTop="10dp"
++            android:background="@drawable/edge"
++            android:gravity="center">
++
++            <TableRow>
++
++                <CheckBox
++                    android:id="@+id/check1"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_marginLeft="30dp"
++                    android:layout_weight="1"
++                    android:text="관리자" />
++
++                <CheckBox
++                    android:id="@+id/check2"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:layout_marginRight="30dp"
++                    android:layout_weight="1"
++                    android:text="사용자" />
++            </TableRow>
++        </TableLayout>
++
++        <Button
++            android:id="@+id/BtnSignup2"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/checkbox"
++            android:layout_marginTop="20dp"
++            android:background="@drawable/basic_btn"
++            android:text="회원가입"
++            android:textColor="@color/white"
++            android:textSize="15dp" />
++    </RelativeLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/drawable/edge.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/edge.xml	(date 1621712434053)
++++ app/src/main/res/drawable/edge.xml	(date 1621712434053)
+@@ -0,0 +1,23 @@
++<?xml version="1.0" encoding="utf-8"?>
++<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
++
++    <item
++        android:bottom="1dp"
++        android:left="1dp"
++        android:right="1dp"
++        android:top="1dp">
++        <shape android:shape="rectangle" >
++            <stroke
++                android:width="1dp"
++                android:color="#dcdcdc" />
++
++            <solid android:color="#FFF" />
++            <corners
++                android:topLeftRadius="12dp"
++                android:topRightRadius="12dp"
++                android:bottomLeftRadius="12dp"
++                android:bottomRightRadius="12dp" />
++        </shape>
++    </item>
++
++</layer-list>
+\ No newline at end of file
+Index: app/src/main/res/drawable/basic_btn.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/basic_btn.xml	(date 1621712403460)
++++ app/src/main/res/drawable/basic_btn.xml	(date 1621712403460)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android"
++    android:shape="rectangle" >
++    <corners
++        android:bottomRightRadius="10dp"
++        android:bottomLeftRadius="10dp"
++        android:topLeftRadius="10dp"
++        android:topRightRadius="10dp"/>
++
++    <solid android:color="#226025" />
++</shape>
+\ No newline at end of file
+Index: app/src/main/res/layout/farmsection.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/farmsection.xml	(date 1621748732554)
++++ app/src/main/res/layout/farmsection.xml	(date 1621748732554)
+@@ -0,0 +1,104 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:layout_weight="1"
++    android:orientation="vertical">
++
++    <TextView
++        android:id="@+id/Tittle_FarmSection"
++        android:layout_height="wrap_content"
++        android:layout_width="match_parent"
++        android:gravity="center"
++        android:paddingTop="20dp"
++        android:paddingBottom="20dp"
++        android:background="@color/white"
++        android:elevation="5dp"
++        android:text="농장 구역"
++        android:textStyle="bold"
++        android:textSize="20dp"
++        android:textColor="@color/black"/>
++
++    <TableLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_gravity="center"
++        android:gravity="center"
++        android:layout_weight="1"
++        android:layout_marginLeft="20dp"
++        android:layout_marginRight="20dp">
++        <TableRow
++            android:layout_width="match_parent"
++            android:layout_marginBottom="3dp">
++            <Button
++                android:id="@+id/farm1"
++                android:text="A"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:background="#D0E6D4"/>
++            <Button
++                android:id="@+id/farm2"
++                android:text="B"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:layout_marginLeft="3dp"
++                android:layout_marginRight="3dp"
++                android:background="#A1BAA6"/>
++            <Button
++                android:id="@+id/farm3"
++                android:text="C"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:background="#B2D3B8"/>
++        </TableRow>
++        <TableRow
++            android:layout_width="match_parent"
++            android:layout_marginBottom="3dp">
++            <Button
++                android:id="@+id/farm4"
++                android:text="D"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:background="#A1BAA6"/>
++            <Button
++                android:id="@+id/farm5"
++                android:text="E"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:layout_marginLeft="3dp"
++                android:layout_marginRight="3dp"
++                android:background="#C4D9C8"/>
++            <Button
++                android:id="@+id/farm6"
++                android:text="F"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:background="#AEBFB1"/>
++        </TableRow>
++        <TableRow
++            android:layout_width="match_parent"
++            android:layout_marginBottom="3dp">
++            <Button
++                android:id="@+id/farm7"
++                android:text="G"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:background="#BDD0C0"/>
++            <Button
++                android:id="@+id/farm8"
++                android:text="H"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:layout_marginLeft="3dp"
++                android:layout_marginRight="3dp"
++                android:background="#9AB7A0"/>
++            <Button
++                android:id="@+id/farm9"
++                android:text="I"
++                android:layout_weight="1"
++                android:layout_height="100dp"
++                android:background="#D0E6D4"/>
++        </TableRow>
++    </TableLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/rentalfarm/SectionActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/rentalfarm/SectionActivity.java	(date 1621748732550)
++++ app/src/main/java/com/example/rentalfarm/SectionActivity.java	(date 1621748732550)
+@@ -0,0 +1,17 @@
++package com.example.rentalfarm;
++
++import android.os.Bundle;
++
++import androidx.annotation.Nullable;
++import androidx.appcompat.app.AppCompatActivity;
++
++public class SectionActivity extends AppCompatActivity {
++    //로그인, 회원가입 > 농장구역: 화면 전환
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.farmsection);
++    }
++
++
++}
+\ No newline at end of file
+Index: app/src/main/java/com/example/rentalfarm/SignupActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/rentalfarm/SignupActivity.java	(date 1621748732524)
++++ app/src/main/java/com/example/rentalfarm/SignupActivity.java	(date 1621748732524)
+@@ -0,0 +1,28 @@
++package com.example.rentalfarm;
++
++import android.content.Intent;
++import android.os.Bundle;
++import android.view.View;
++import android.widget.Button;
++
++import androidx.annotation.Nullable;
++import androidx.appcompat.app.AppCompatActivity;
++
++public class SignupActivity extends AppCompatActivity {
++    //로그인 > 회원가입: 화면 전환
++    @Override
++    protected void onCreate(@Nullable Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.signup);
++
++        // 회원가입 > 농장구역: 화면 전환
++        Button BtnSignup2 = (Button) findViewById(R.id.BtnSignup2);
++        BtnSignup2.setOnClickListener(new View.OnClickListener(){
++            @Override
++            public void onClick(View v) {
++                Intent intent = new Intent(getApplicationContext(), SectionActivity.class);
++                startActivity(intent);
++            }
++        });
++    }
++}
+Index: app/src/main/res/layout/farmchange.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/farmchange.xml	(date 1621724439390)
++++ app/src/main/res/layout/farmchange.xml	(date 1621724439390)
+@@ -0,0 +1,115 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:layout_weight="1"
++    android:orientation="vertical">
++
++    <FrameLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:background="@color/white"
++        android:elevation="5dp">
++        <TextView
++            android:id="@+id/Tittle_SectionChange"
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:gravity="center"
++            android:paddingTop="20dp"
++            android:paddingBottom="20dp"
++            android:text="농장 구역 정보"
++            android:textSize="20dp"
++            android:textStyle="bold"
++            android:textColor="@color/black"/>
++        <Button
++            android:id="@+id/back"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_gravity="left|center_vertical"
++            android:layout_marginLeft="10dp"
++            android:background="#00ff0000"
++            android:text="<"
++            android:textColor="#606060"
++            android:textSize="20dp" />
++    </FrameLayout>
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_weight="1"
++        android:gravity="center"
++        android:layout_marginLeft="20dp"
++        android:layout_marginRight="20dp">
++        <TextView
++            android:id="@+id/farmName"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:text="농장 구역 이름"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/Edit_farmName"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/farmName"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:paddingLeft="20dp"
++            android:hint="텍스트를 입력하시오."
++            android:textSize="15dp"/>
++
++        <TextView
++            android:id="@+id/appointment"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/Edit_farmName"
++            android:text="계약 일자"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/Edit_appointment"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/appointment"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:paddingLeft="20dp"
++            android:hint="텍스트를 입력하시오."
++            android:textSize="15dp"/>
++
++        <TextView
++            android:id="@+id/userID"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_below="@+id/Edit_appointment"
++            android:text="사용자 아이디"
++            android:textColor="@color/black" />
++        <EditText
++            android:id="@+id/Edit_userID"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:layout_below="@+id/userID"
++            android:layout_marginTop="10dp"
++            android:layout_marginBottom="20dp"
++            android:paddingLeft="20dp"
++            android:hint="텍스트를 입력하시오."
++            android:textSize="15dp"/>
++    </RelativeLayout>
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:layout_weight="1"
++        android:gravity="center"
++        android:layout_marginLeft="20dp"
++        android:layout_marginRight="20dp">
++        <Button
++            android:id="@+id/endChange"
++            android:layout_width="match_parent"
++            android:layout_height="50dp"
++            android:background="@drawable/basic_btn"
++            android:text="완료"
++            android:textColor="@color/white"
++            android:textSize="15dp" />
++    </RelativeLayout>
++
++</LinearLayout>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"GradleSettings\">\n    <option name=\"linkedExternalProjectsSettings\">\n      <GradleProjectSettings>\n        <option name=\"testRunner\" value=\"PLATFORM\" />\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"gradleJvm\" value=\"1.8\" />\n        <option name=\"modules\">\n          <set>\n            <option value=\"$PROJECT_DIR$\" />\n            <option value=\"$PROJECT_DIR$/app\" />\n          </set>\n        </option>\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\n        <option name=\"useQualifiedModuleNames\" value=\"true\" />\n      </GradleProjectSettings>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ .idea/gradle.xml	(date 1621711872267)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+@@ -14,7 +15,6 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
+-        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: .idea/runConfigurations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/runConfigurations.xml	(date 1621711872273)
++++ .idea/runConfigurations.xml	(date 1621711872273)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RunConfigurationProducerService">
++    <option name="ignoredProducers">
++      <set>
++        <option value="com.android.tools.idea.compose.preview.runconfiguration.ComposePreviewRunConfigurationProducer" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\n    <!-- Base application theme. -->\n    <style name=\"Theme.RentalFarm\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\n        <!-- Primary brand color. -->\n        <item name=\"colorPrimary\">@color/purple_500</item>\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\n        <item name=\"colorOnPrimary\">@color/white</item>\n        <!-- Secondary brand color. -->\n        <item name=\"colorSecondary\">@color/teal_200</item>\n        <item name=\"colorSecondaryVariant\">@color/teal_700</item>\n        <item name=\"colorOnSecondary\">@color/black</item>\n        <!-- Status bar color. -->\n        <item name=\"android:statusBarColor\" tools:targetApi=\"l\">?attr/colorPrimaryVariant</item>\n        <!-- Customize your theme here. -->\n    </style>\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/themes.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ app/src/main/res/values/themes.xml	(date 1621713522051)
+@@ -1,9 +1,10 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+-    <style name="Theme.RentalFarm" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
++    <style name="Theme.RentalFarm" parent="Theme.AppCompat.Light" >
++        <item name="windowNoTitle">true</item>
+         <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_500</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
++        <item name="colorPrimary">#428844</item>
++        <item name="colorPrimaryVariant">#3B6132</item>
+         <item name="colorOnPrimary">@color/white</item>
+         <!-- Secondary brand color. -->
+         <item name="colorSecondary">@color/teal_200</item>
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"CompilerConfiguration\">\n    <bytecodeTargetLevel target=\"1.8\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ .idea/compiler.xml	(date 1621711872255)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel target="1.8" />
++    <bytecodeTargetLevel target="11" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ .idea/misc.xml	(date 1621711872251)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: ../.idea/android_project.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- ../.idea/android_project.iml	(date 1621711624023)
++++ ../.idea/android_project.iml	(date 1621711624023)
+@@ -0,0 +1,24 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="android" name="Android">
++      <configuration>
++        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/../../android_project/gen" />
++        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/../../android_project/gen" />
++        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/../../android_project/AndroidManifest.xml" />
++        <option name="RES_FOLDER_RELATIVE_PATH" value="/../../android_project/res" />
++        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/../../android_project/assets" />
++        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/../../android_project/libs" />
++        <option name="PROGUARD_LOGS_FOLDER_RELATIVE_PATH" value="/../../android_project/proguard_logs" />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/gen" isTestSource="false" generated="true" />
++    </content>
++    <orderEntry type="jdk" jdkName="Android API 30 Platform" jdkType="Android SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\nbuildscript {\n    repositories {\n        google()\n        jcenter()\n    }\n    dependencies {\n        classpath \"com.android.tools.build:gradle:4.1.2\"\n\n        // NOTE: Do not place your application dependencies here; they belong\n        // in the individual module build.gradle files\n    }\n}\n\nallprojects {\n    repositories {\n        google()\n        jcenter()\n    }\n}\n\ntask clean(type: Delete) {\n    delete rootProject.buildDir\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ build.gradle	(date 1621713980075)
+@@ -5,7 +5,7 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath "com.android.tools.build:gradle:4.1.2"
++        classpath 'com.android.tools.build:gradle:4.2.1'
+ 
+         // NOTE: Do not place your application dependencies here; they belong
+         // in the individual module build.gradle files
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Tue May 04 18:16:51 KST 2021\ndistributionBase=GRADLE_USER_HOME\ndistributionPath=wrapper/dists\nzipStoreBase=GRADLE_USER_HOME\nzipStorePath=wrapper/dists\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-6.5-bin.zip\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(revision e0af5f8ae6aaa55053a725bbc0fee0a5119429a9)
++++ gradle/wrapper/gradle-wrapper.properties	(date 1621713980034)
+@@ -1,6 +1,6 @@
+-#Tue May 04 18:16:51 KST 2021
++#Sun May 23 05:05:45 KST 2021
+ distributionBase=GRADLE_USER_HOME
++distributionUrl=https\://services.gradle.org/distributions/gradle-6.7.1-bin.zip
+ distributionPath=wrapper/dists
+-zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip
++zipStoreBase=GRADLE_USER_HOME
