@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="5dp">
+        <TextView
+            android:id="@+id/Tittle_SignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:text="회원가입"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/X"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginLeft="10dp"
+            android:background="#00ff0000"
+            android:text="X"
+            android:textColor="#606060"
+            android:textSize="20dp" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/Signup_Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/Signup_EditName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Signup_Name"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edge"
+            android:paddingLeft="20dp" />
+
+        <TextView
+            android:id="@+id/Signup_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Signup_EditName"
+            android:text="아이디"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/Signup_EditID"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Signup_ID"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edge"
+            android:paddingLeft="20dp" />
+
+        <TextView
+            android:id="@+id/Signup_PW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Signup_EditID"
+            android:text="비밀번호"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/Signup_EditPW"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Signup_PW"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edge"
+            android:paddingLeft="20dp" />
+
+        <CheckBox
+            android:id="@+id/eye"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignRight="@+id/Signup_EditPW"
+            android:layout_alignBottom="@+id/Signup_EditPW"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:button="@null"
+            android:background="@drawable/checkbox"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:id="@+id/Signup_PN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Signup_EditPW"
+            android:text="전화번호"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/Signup_EditPN"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Signup_PN"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/edge"
+            android:hint="-없이 번호 입력"
+            android:paddingLeft="20dp"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/Signup_Type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Signup_EditPN"
+            android:text="타입 선택"
+            android:textColor="@color/black" />
+
+        <TableLayout
+            android:id="@+id/checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/Signup_Type"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edge"
+            android:gravity="center">
+
+            <TableRow>
+
+                <CheckBox
+                    android:id="@+id/check1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="1"
+                    android:text="관리자" />
+
+                <CheckBox
+                    android:id="@+id/check2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:layout_weight="1"
+                    android:text="사용자" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/BtnSignup2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/checkbox"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/basic_btn"
+            android:text="회원가입"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </RelativeLayout>
+</LinearLayout>
