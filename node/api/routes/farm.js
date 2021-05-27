@@ -20,4 +20,9 @@ router.get('/zone', farm.status);
 /* 상태 수정(재배식물명) */
 router.patch('/zone', farm.status_update);
 
+/* 채팅 입력*/
+router.post('/zone/chat', farm.chat);
+
+/* 채팅 최신화 */
+
 module.exports = router;
