@@ -1,4 +1,4 @@
-package com.example.test_app;
+package com.example.rentalfarm;
 
 import android.content.Context;
 import android.media.MediaScannerConnection;

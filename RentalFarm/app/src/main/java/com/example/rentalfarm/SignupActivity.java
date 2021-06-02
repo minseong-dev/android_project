@@ -34,12 +34,12 @@ public class SignupActivity extends AppCompatActivity {
         CheckBox eye = (CheckBox) findViewById(R.id.eye);
 
         /**
-         * 회원가입 화면 > (회원가입 완료 후) 농장 구역 화면 전환
+         * 회원가입 화면 > (회원가입 완료 후) 로그인 화면 전환
          * putExtra: 회원가입 정보 값 전달 */
         BtnSignup2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignupActivity.this, SectionActivity.class);
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
 
                 intent.putExtra("NewName",Signup_EditName.getText().toString());
                 intent.putExtra("NewID",Signup_EditID.getText().toString());

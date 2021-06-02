@@ -1,4 +1,4 @@
-package com.example.test_app;
+package com.example.rentalfarm;
 
 import android.app.Dialog;
 import android.content.Context;

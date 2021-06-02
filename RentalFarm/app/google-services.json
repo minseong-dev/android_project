@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "138690952772",
+    "project_id": "rental-farm",
+    "storage_bucket": "rental-farm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138690952772:android:d3f27248c642a481518611",
+        "android_client_info": {
+          "package_name": "com.example.test_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138690952772-01p4nursm1qkqgdp7tnaf99u49e4934n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2tII6_OQZKR1A9ZFexZIIhqw7LRRVCyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138690952772-01p4nursm1qkqgdp7tnaf99u49e4934n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
