@@ -8,36 +8,22 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="71eeca68-2b4b-46b8-ba60-97753df0bf23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/res/xml/file_paths.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalFarm/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/CustomDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/android_project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RentalFarm/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/res/drawable/basic_btn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/res/drawable/edge.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/res/layout/signup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MediaScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MediaScanner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/SignupActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/SignupActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/res/layout/login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/res/layout/login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/res/values/themes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RentalFarm/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,55 +94,14 @@
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="WindowStateProjectService">
     <state x="184" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621711636801">
       <screen x="0" y="25" width="1440" height="819" />
     </state>
     <state x="184" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.819@0.25.1440.819" timestamp="1621711636801" />
-    <state x="951" y="252" key="AndroidCreateXmlResourceDialog" timestamp="1622622505070">
-      <screen x="0" y="25" width="1440" height="822" />
+    <state x="951" y="251" key="AndroidCreateXmlResourceDialog" timestamp="1621711826237">
+      <screen x="0" y="25" width="1440" height="819" />
     </state>
     <state x="951" y="251" key="AndroidCreateXmlResourceDialog/0.25.1440.819@0.25.1440.819" timestamp="1621711826237" />
-    <state x="951" y="252" key="AndroidCreateXmlResourceDialog/0.25.1440.822@0.25.1440.822" timestamp="1622622505070" />
-    <state width="1398" height="210" key="GridCell.Tab.0.bottom" timestamp="1622624200987">
-      <screen x="0" y="25" width="1440" height="822" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.25.1440.822@0.25.1440.822" timestamp="1622624200987" />
-    <state width="1398" height="210" key="GridCell.Tab.0.center" timestamp="1622624200982">
-      <screen x="0" y="25" width="1440" height="822" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.center/0.25.1440.822@0.25.1440.822" timestamp="1622624200982" />
-    <state width="1398" height="210" key="GridCell.Tab.0.left" timestamp="1622624200978">
-      <screen x="0" y="25" width="1440" height="822" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.left/0.25.1440.822@0.25.1440.822" timestamp="1622624200978" />
-    <state width="1398" height="210" key="GridCell.Tab.0.right" timestamp="1622624200986">
-      <screen x="0" y="25" width="1440" height="822" />
-    </state>
-    <state width="1398" height="210" key="GridCell.Tab.0.right/0.25.1440.822@0.25.1440.822" timestamp="1622624200986" />
-    <state x="144" y="93" key="MergeDialog" timestamp="1622621338186">
-      <screen x="0" y="25" width="1440" height="822" />
-    </state>
-    <state x="144" y="93" key="MergeDialog/0.25.1440.822@0.25.1440.822" timestamp="1622621338186" />
-    <state x="320" y="173" key="Vcs.Push.Dialog.v2" timestamp="1622621301418">
-      <screen x="0" y="25" width="1440" height="822" />
-    </state>
-    <state x="320" y="173" key="Vcs.Push.Dialog.v2/0.25.1440.822@0.25.1440.822" timestamp="1622621301418" />
-    <state x="521" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1622621321576">
-      <screen x="0" y="25" width="1440" height="822" />
-    </state>
-    <state x="521" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.822@0.25.1440.822" timestamp="1622621321576" />
   </component>
 </project>
