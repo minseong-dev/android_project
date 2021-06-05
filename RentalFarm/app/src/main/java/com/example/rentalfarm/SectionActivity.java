@@ -36,17 +36,18 @@ public class SectionActivity extends AppCompatActivity {
         for(i=0;i<farm.length;i++){
             farm[i] = (Button)findViewById(farmIDs[i]);
             registerForContextMenu(farm[i]);
-        }
 
-        /**
-         * 농장 구역 화면 > 채팅창 화면 전환 (!!채팅창 클래스 이름 입력해야 함!!)
-        farm[i].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SectionActivity.this, 채팅창 클래스);
-            }
-        });
-         */
+            /**
+             * 농장 구역 화면 > 채팅창 화면 전환
+             **/
+            farm[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(SectionActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     // 농장 구역 꾹 누르면 Context Menu 뜨게 설정
