@@ -25,18 +25,8 @@
         <activity android:name=".SignupActivity" />
         <activity android:name=".SectionActivity" />
         <activity android:name=".InformationActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".Camera" />
-
-        <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <provider
             android:authorities="com.example.test_app"
