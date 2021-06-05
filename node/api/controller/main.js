@@ -10,8 +10,8 @@ class main {
             const id = 'minn'
             const password = '1234'
 
-            let minn = await db('select * from user where id = ? and password = ?', [id, password])
-            let userInfo = await db('select * from user')
+            let minn = await db('select * from users where id = ? and password = ?', [id, password])
+            let userInfo = await db('select * from users')
 
             const mainInfo = {
                 userInfo : userInfo,
