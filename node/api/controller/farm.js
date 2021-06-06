@@ -5,6 +5,8 @@ class farm {
 
     async info(req, res) {
 
+        let date_sent = 0;
+
         try{
 
             const zone_name = req.body.zone_name;
@@ -127,13 +129,36 @@ class farm {
             const chat_img = req.body.chat_img;
 
             if (chat_type == 'text') {
-                await db('insert into chat(id, date_sent, chat_text, type_sent, zone_id, chat_type) values(?, ?, ?, ?, ?, ?)', [chat_id, date_sent, chat_text, type_sent, zone_id, chat_type])
+                await db('insert into chat(id, date_sent, chat_text, type_sent, zone_id, chat_type) values(?, ?, ?, ?, ?, ?)', 
+                [chat_id, date_sent, chat_text, type_sent, zone_id, chat_type])
             } 
             else if (chat_type == 'img') {
-                await db('insert into chat(id, date_sent, chat_img, type_sent, zone_id, chat_type) values(?, ?, ?, ?, ?, ?)', [chat_id, date_sent, chat_img, type_sent, zone_id, chat_type])
+                await db('insert into chat(id, date_sent, chat_img, type_sent, zone_id, chat_type) values(?, ?, ?, ?, ?, ?)', 
+                [chat_id, date_sent, chat_img, type_sent, zone_id, chat_type])
             }
         
             res.status(httpStatus.OK).send('채팅등록완료')
+
+        }
+        
+        catch (error) {
+            console.error(error)
+            res.status(httpStatus.INTERNAL_SERVER_ERROR).send([])
+        }
+    }
+
+    async chatting(req, res) {
+
+        try{
+
+            const zone_id = req.body.zone_id;
+
+            let chatInfo = await db('select chat_text, chat_img, type_sent from chat where zone_id=?', [zone_id])
+            const mainInfo = {
+                chatInfo : chatInfo
+            }
+            
+            res.status(httpStatus.OK).send(mainInfo)
 
         }
         
