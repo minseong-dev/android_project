@@ -1,19 +1,33 @@
 package com.example.rentalfarm;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class LoginActivity extends AppCompatActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+
+public class LoginActivity extends AppCompatActivity {
+    // 와이파이 변경 시 ip주소 바꿔줄 것.
+    static String ip = "192.168.0.73";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +55,94 @@ public class LoginActivity extends AppCompatActivity {
         BtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String user_id = EditID.getText().toString();
+                String user_password = EditPW.getText().toString();
+
                 Intent intent = new Intent(LoginActivity.this, SectionActivity.class);
 
-                intent.putExtra("ID",EditID.getText().toString());
-                intent.putExtra("PW",EditPW.getText().toString());
+                // 서버와 통신하는 부분 시작, 통신이 필요한 클래스 안에 작성.
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        // URL 원하는 변수명.
+                        URL loginEndpoint = null;
+                        try {
+                            loginEndpoint = new URL("http://" + ip + ":3000/user/login");
+                            // catch 예외처리
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        }
+                        HttpURLConnection loginConnection = null;
+                        try {
+                            loginConnection = (HttpURLConnection) loginEndpoint.openConnection();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            loginConnection.setRequestMethod("POST");
+                            loginConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                            loginConnection.setRequestProperty("Accept", "application/json");
+                            loginConnection.setDoOutput(true);
+                            loginConnection.setDoInput(true);
+                        } catch (ProtocolException e) {
+                            e.printStackTrace();
+                        }
 
-                startActivity(intent);
+                        JSONObject jsonParam = new JSONObject();
+                        try {
+                            jsonParam.put("user_id", user_id);
+                            jsonParam.put("user_password", user_password);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Log.i("JSON", jsonParam.toString());
 
+                        DataOutputStream os = null;
+                        try {
+                            os = new DataOutputStream(loginConnection.getOutputStream());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            os.writeBytes(jsonParam.toString());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            os.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            os.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            if(loginConnection.getResponseCode() == 200) {
+                                // 다음화면으로 넘겨줄 값.
+                                intent.putExtra("ID",user_id);
+                                intent.putExtra("PW",user_password);
+
+                                // 화면이동.
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                            Log.i("STATUS", String.valueOf(loginConnection.getResponseCode()));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        // 잘 연결됐는지 log출력
+                        try {
+                            Log.i("MSG" , loginConnection.getResponseMessage());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                Toast.makeText(getApplicationContext(), "로그인이 되었습니다.", Toast.LENGTH_SHORT).show();
             }
         });
 
