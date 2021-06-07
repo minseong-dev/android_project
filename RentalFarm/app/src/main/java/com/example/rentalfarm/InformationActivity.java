@@ -2,7 +2,9 @@ package com.example.rentalfarm;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -12,6 +14,15 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.Calendar;
 
 public class InformationActivity extends AppCompatActivity {
@@ -82,8 +93,93 @@ public class InformationActivity extends AppCompatActivity {
                 intent.putExtra("NewAppointment1", changeDate1.getText().toString());
                 intent.putExtra("NewAppointment1", changeDate2.getText().toString());
                 intent.putExtra("NewUserID", Edit_userID.getText().toString());
+                
+                // SectionActivity의 구역 id가져오기
+                Intent intents = getIntent();
+                String zone_farm_id = intents.getExtras().getString("zone_farm_id");
 
-                startActivity(intent); }
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        // URL 원하는 변수명.
+                        URL httpEndpoint = null;
+                        try {
+                            httpEndpoint = new URL("http://" + LoginActivity.ip + ":3000/farm/");
+                            // catch 예외처리
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
+                        }
+                        HttpURLConnection myConnection = null;
+                        try {
+                            myConnection = (HttpURLConnection) httpEndpoint.openConnection();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            myConnection.setRequestMethod("POST");
+                            myConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                            myConnection.setRequestProperty("Accept", "application/json");
+                            myConnection.setDoOutput(true);
+                            myConnection.setDoInput(true);
+                        } catch (ProtocolException e) {
+                            e.printStackTrace();
+                        }
+
+                        JSONObject jsonParam = new JSONObject();
+                        try {
+                            jsonParam.put("zone_name", Edit_farmName.getText().toString());
+                            jsonParam.put("zone_contract_date", changeDate1.getText().toString() + '~' +changeDate2.getText().toString());
+                            jsonParam.put("zone_user_id", Edit_userID.getText().toString());
+                            jsonParam.put("zone_farm_id", 1);
+                            // jsonParam.put("zone_id", zone_farm_id);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        Log.i("JSON", jsonParam.toString());
+
+                        DataOutputStream os = null;
+                        try {
+                            os = new DataOutputStream(myConnection.getOutputStream());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            os.writeBytes(jsonParam.toString());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            os.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            os.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            if(myConnection.getResponseCode() == 200) {
+                                // 화면이동.
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(getApplicationContext(), "다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                            Log.i("STATUS", String.valueOf(myConnection.getResponseCode()));
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+                        // 잘 연결됐는지 log출력
+                        try {
+                            Log.i("MSG" , myConnection.getResponseMessage());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+            }
         });
 
         back.setOnClickListener(new View.OnClickListener() {

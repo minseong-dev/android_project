@@ -70,6 +70,13 @@ public class SectionActivity extends AppCompatActivity {
             case R.id.update:
             case R.id.change:
                 Intent intent = new Intent(SectionActivity.this, InformationActivity.class);
+                // InformationActivity에 구역ID 넘겨주기
+                for(i=0;i<farm.length;i++) {
+                    farm[i] = (Button) findViewById(farmIDs[i]);
+                    registerForContextMenu(farm[i]);
+                    String zone_farm_id = String.valueOf(farm[i]);
+                    intent.putExtra("zone_farm_id", zone_farm_id);
+                }
                 startActivity(intent);
                 return true;
             case R.id.delete:
