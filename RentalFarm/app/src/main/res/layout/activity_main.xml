@@ -84,7 +84,7 @@
     <ListView
         android:id="@+id/chat_view"
         android:layout_width="match_parent"
-        android:layout_height="354dp"
+        android:layout_height="583dp"
         android:divider="#FFFFFF"
         android:dividerHeight="0px" />
 

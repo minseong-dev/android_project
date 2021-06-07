@@ -27,7 +27,7 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
     // 와이파이 변경 시 ip주소 바꿔줄 것.
-    static String ip = "192.168.0.73";
+    static String ip = "192.168.0.4";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 // 화면이동.
                                 startActivity(intent);
+
                             } else {
                                 Toast.makeText(getApplicationContext(), "다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
                             }
