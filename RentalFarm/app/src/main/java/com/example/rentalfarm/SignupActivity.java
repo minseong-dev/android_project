@@ -79,7 +79,7 @@ public class SignupActivity extends AppCompatActivity {
                         }
                         try {
                             singupConnection.setRequestMethod("POST");
-                            singupConnection.setRequestProperty("Content-Type", "application/json: charset=UTF-8");
+                            singupConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
                             singupConnection.setRequestProperty("Accept", "application/json");
                             singupConnection.setDoOutput(true);
                             singupConnection.setDoInput(true);
@@ -146,8 +146,6 @@ public class SignupActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-                startActivity(intent);
             }
         });
 
