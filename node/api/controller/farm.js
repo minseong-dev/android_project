@@ -151,7 +151,7 @@ class farm {
 
         try{
 
-            const zone_id = req.body.zone_id;
+            const zone_id = req.query.zone_id;
 
             let chatInfo = await db('select chat_text, chat_img, type_sent from chat where zone_id=?', [zone_id])
             const mainInfo = {
