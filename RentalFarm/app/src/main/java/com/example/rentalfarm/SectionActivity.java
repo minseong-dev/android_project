@@ -68,23 +68,14 @@ public class SectionActivity extends AppCompatActivity {
     // Context Menu 선택 시 화면 작동
     public boolean onContextItemSelected(MenuItem item){
         switch (item.getItemId()){
-            Intent intent = new Intent(SectionActivity.this, InformationActivity.class);
             case R.id.update:
-                // InformationActivity에 구역ID 넘겨주기
-                for(i=0;i<farm.length;i++) {
-                    farm[i] = (Button) findViewById(farmIDs[i]);
-                    registerForContextMenu(farm[i]);
-                    Button zone_id = farm[i];
-                    intent.putExtra("zone_id", String.valueOf(zone_id));
-                }
-                startActivity(intent);
 
             case R.id.change:
-                // Intent intent = new Intent(SectionActivity.this, InformationActivity.class);
+                Intent intent = new Intent(SectionActivity.this, InformationActivity.class);
                 // InformationActivity에 구역ID 넘겨주기
                 for(i=0;i<farm.length;i++) {
                     farm[i] = (Button) findViewById(farmIDs[i]);
-                    registerForContextMenu(farm[i]);
+                    //registerForContextMenu(farm[i]);
                     Button zone_id = farm[i];
                     intent.putExtra("zone_id", String.valueOf(zone_id));
                 }

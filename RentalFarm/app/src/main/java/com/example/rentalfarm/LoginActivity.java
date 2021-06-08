@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         try {
-                            os.writeBytes(jsonParam.toString());
+                            os.write(jsonParam.toString().getBytes("UTF-8"));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

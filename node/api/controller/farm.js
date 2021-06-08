@@ -6,14 +6,14 @@ class farm {
     async info(req, res) {
 
         try{
-
-            const zone_name = req.body.zone_name;
+            console.log(req.body)
+            const zone_id = req.body.zone_id;
             const zone_contract_date = req.body.zone_contract_date;
             const zone_user_id = req.body.zone_user_id;
-            const zone_farm_id = req.body.zone_farm_id;
-            let zone_id = 10000000 * Math.random();
+            const farm_id = req.body.farm_id;
+            const zone_name = req.body.zone_name;
 
-            await db('insert into zone(id, contract_date, user_id, farm_id, zone_name) values(?, ?, ?, ?, ?)', [zone_id, zone_contract_date, zone_user_id, zone_farm_id, zone_name])
+            await db('insert into zone(id, contract_date, user_id, farm_id, zone_name) values(?, ?, ?, ?, ?)', [zone_id, zone_contract_date, zone_user_id, farm_id, zone_name])
 
             res.status(httpStatus.OK).send('구역등록완료')
         }
@@ -98,7 +98,7 @@ class farm {
     async status_update(req, res) {
 
         try{
-
+            console.log(req.body)
             const zone_id = req.body.zone_id;
             const zone_crop_name = req.body.zone_crop_name;
 
