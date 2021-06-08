@@ -28,15 +28,15 @@ public class SectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.farmsection);
 
-        Intent intent = getIntent();
-        String ID = intent.getExtras().getString("ID");
-        String PW = intent.getExtras().getString("PW");
+//        Intent intent = getIntent();
+//        String ID = intent.getExtras().getString("ID");
+//        String PW = intent.getExtras().getString("PW");
 
         // 배열을 이용해 구역 ID 등록
         for(i=0;i<farm.length;i++){
             farm[i] = (Button)findViewById(farmIDs[i]);
             registerForContextMenu(farm[i]);
-
+            Button zone_id = farm[i];
             /**
              * 농장 구역 화면 > 채팅창 화면 전환
              **/
@@ -44,6 +44,7 @@ public class SectionActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(SectionActivity.this, MainActivity.class);
+                    intent.putExtra("zone_id", String.valueOf(zone_id));
                     startActivity(intent);
                 }
             });
@@ -67,15 +68,25 @@ public class SectionActivity extends AppCompatActivity {
     // Context Menu 선택 시 화면 작동
     public boolean onContextItemSelected(MenuItem item){
         switch (item.getItemId()){
+            Intent intent = new Intent(SectionActivity.this, InformationActivity.class);
             case R.id.update:
-            case R.id.change:
-                Intent intent = new Intent(SectionActivity.this, InformationActivity.class);
                 // InformationActivity에 구역ID 넘겨주기
                 for(i=0;i<farm.length;i++) {
                     farm[i] = (Button) findViewById(farmIDs[i]);
                     registerForContextMenu(farm[i]);
-                    String zone_farm_id = String.valueOf(farm[i]);
-                    intent.putExtra("zone_farm_id", zone_farm_id);
+                    Button zone_id = farm[i];
+                    intent.putExtra("zone_id", String.valueOf(zone_id));
+                }
+                startActivity(intent);
+
+            case R.id.change:
+                // Intent intent = new Intent(SectionActivity.this, InformationActivity.class);
+                // InformationActivity에 구역ID 넘겨주기
+                for(i=0;i<farm.length;i++) {
+                    farm[i] = (Button) findViewById(farmIDs[i]);
+                    registerForContextMenu(farm[i]);
+                    Button zone_id = farm[i];
+                    intent.putExtra("zone_id", String.valueOf(zone_id));
                 }
                 startActivity(intent);
                 return true;

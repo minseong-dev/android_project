@@ -65,10 +65,10 @@
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:backgroundTint="@color/Button"
-            android:text="수정"
+            android:layout_marginRight="15dp"
             android:layout_weight="1"
-            android:layout_marginRight="15dp"/>
+            android:backgroundTint="@color/Button"
+            android:text="등록" />
 
     </LinearLayout>
 

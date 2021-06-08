@@ -34,6 +34,10 @@ public class InformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.farmchange);
 
+        // SectionActivity의 구역 id가져오기
+        Intent intents = getIntent();
+        String zone_id = intents.getExtras().getString("zone_id");
+
         Button endChange = (Button) findViewById(R.id.endChange);
         EditText Edit_farmName = (EditText) findViewById(R.id.Edit_farmName);
         EditText Edit_userID = (EditText) findViewById(R.id.Edit_userID);
@@ -89,14 +93,10 @@ public class InformationActivity extends AppCompatActivity {
                 Intent intent = new Intent(InformationActivity.this, SectionActivity.class);
                 Toast.makeText(getApplicationContext(), "완료되었습니다.", Toast.LENGTH_SHORT).show();
 
-                intent.putExtra("NewFarmName", Edit_farmName.getText().toString());
-                intent.putExtra("NewAppointment1", changeDate1.getText().toString());
-                intent.putExtra("NewAppointment1", changeDate2.getText().toString());
-                intent.putExtra("NewUserID", Edit_userID.getText().toString());
-                
-                // SectionActivity의 구역 id가져오기
-                Intent intents = getIntent();
-                String zone_farm_id = intents.getExtras().getString("zone_farm_id");
+//                intent.putExtra("NewFarmName", Edit_farmName.getText().toString());
+//                intent.putExtra("NewAppointment1", changeDate1.getText().toString());
+//                intent.putExtra("NewAppointment1", changeDate2.getText().toString());
+//                intent.putExtra("NewUserID", Edit_userID.getText().toString());
 
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -130,8 +130,8 @@ public class InformationActivity extends AppCompatActivity {
                             jsonParam.put("zone_name", Edit_farmName.getText().toString());
                             jsonParam.put("zone_contract_date", changeDate1.getText().toString() + '~' +changeDate2.getText().toString());
                             jsonParam.put("zone_user_id", Edit_userID.getText().toString());
-                            jsonParam.put("zone_farm_id", 1);
-                            // jsonParam.put("zone_id", zone_farm_id);
+                            jsonParam.put("farm_id", 1);
+                            jsonParam.put("zone_id", zone_id);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -160,6 +160,7 @@ public class InformationActivity extends AppCompatActivity {
                         }
                         try {
                             if(myConnection.getResponseCode() == 200) {
+
                                 // 화면이동.
                                 startActivity(intent);
                             } else {

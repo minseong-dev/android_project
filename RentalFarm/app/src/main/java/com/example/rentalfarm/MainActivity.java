@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intents = getIntent();
+        String zone_id = intents.getExtras().getString("zone_id");
+
         final TextView main_label = (TextView) findViewById(R.id.main_label);
         Button button = (Button) findViewById(R.id.setText);
 
@@ -33,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CustomDialog customDialog = new CustomDialog(MainActivity.this);
-                customDialog.callFunction(main_label);
+//                Intent intent = new Intent(MainActivity.this, CustomDialog.class);
+//                intent.putExtra("zone_id", String.valueOf(zone_id));
+                customDialog.callFunction(main_label, zone_id);
             }
         });
 

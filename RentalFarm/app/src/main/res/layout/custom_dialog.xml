@@ -23,7 +23,7 @@
         android:background="#000000"/>
 
     <EditText
-        android:id="@+id/message"
+        android:id="@+id/crop_name"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_marginTop="20dp"

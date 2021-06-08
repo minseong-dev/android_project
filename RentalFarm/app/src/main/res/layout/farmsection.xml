@@ -31,12 +31,14 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_marginBottom="3dp">
+
             <Button
                 android:id="@+id/farm1"
-                android:text="A"
-                android:layout_weight="1"
                 android:layout_height="100dp"
-                android:background="#D0E6D4"/>
+                android:layout_weight="1"
+                android:background="#D0E6D4"
+                android:text="A" />
+
             <Button
                 android:id="@+id/farm2"
                 android:text="B"
