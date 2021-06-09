@@ -16,8 +16,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -31,6 +34,7 @@ import java.util.concurrent.ExecutionException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,14 +43,18 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> datas = new ArrayList<String>();
     EditText input_msg;
     Timer timer = new Timer();
+    TextView contract_date;
+    TextView crop_name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intents = getIntent();
-        String zone_id = intents.getExtras().getString("zone_id");
+//        Intent intents = getIntent();
+//        String zone_id = intents.getExtras().getString("zone_id");
+        String zone_id = "10";
 
         final TextView main_label = (TextView) findViewById(R.id.main_label);
         Button button = (Button) findViewById(R.id.setText);
@@ -70,17 +78,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        status();
 
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                test();
+                chatting();
             }
         }, 0, 4000);
 
     }
 
-    public void test() {
+    public void status() {
+        String resultText = "[NULL]";
+
+        try {
+            resultText = new Task2().execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        contract_date = findViewById(R.id.text2);
+        crop_name = findViewById(R.id.value2);
+
+        try {
+            JSONObject jObject = new JSONObject(resultText);
+            JSONArray jArray = jObject.getJSONArray("zoneInfo");
+
+            JSONObject obj = jArray.getJSONObject(0);
+            String cropName = obj.getString("crop_name");
+            String contractDate = obj.getString("contract_date");
+
+            crop_name.setText(cropName);
+            contract_date.setText("  계약일자 : " + contractDate);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void chatting() {
         String resultText = "[NULL]";
 
         try {
@@ -132,6 +174,8 @@ public class MainActivity extends AppCompatActivity {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -153,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 // URL 원하는 변수명.
                 URL url = null;
                 try {
-                    url = new URL("http://192.168.219.132:3000/farm/zone/chat/");
+                    url = new URL("http://192.168.0.7:3000/farm/zone/chat/");
                     // catch 예외처리
                 } catch (MalformedURLException e) {
                     e.printStackTrace();

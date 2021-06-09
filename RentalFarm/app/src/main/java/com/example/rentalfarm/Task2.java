@@ -9,7 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Task extends AsyncTask<String, Void, String> {
+public class Task2 extends AsyncTask<String, Void, String> {
 
     String clientKey = "#########################";;
     private String str, receiveMsg;
@@ -19,7 +19,7 @@ public class Task extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         URL url = null;
         try{
-            url = new URL("http://192.168.0.7:3000/farm/zone/chatting?zone_id=10");
+            url = new URL("http://192.168.0.7:3000/farm/zone/?zone_id=10");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
