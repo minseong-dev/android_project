@@ -15,11 +15,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -27,7 +31,10 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
     // 와이파이 변경 시 ip주소 바꿔줄 것.
-    static String ip = "192.168.0.4";
+    static String ip = "192.168.0.73";
+
+    // loginInfo
+    private String str, receiveMsg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                 String user_password = EditPW.getText().toString();
 
                 Intent intent = new Intent(LoginActivity.this, SectionActivity.class);
-
+                Intent intent2 = new Intent(LoginActivity.this, MainActivity.class);
                 // 서버와 통신하는 부분 시작, 통신이 필요한 클래스 안에 작성.
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
-                        // URL 원하는 변수명.
+                        // 로그인 URL
                         URL loginEndpoint = null;
                         try {
                             loginEndpoint = new URL("http://" + ip + ":3000/user/login");
@@ -123,10 +130,6 @@ public class LoginActivity extends AppCompatActivity {
                                 // 다음화면으로 넘겨줄 값.
                                 intent.putExtra("ID",user_id);
                                 intent.putExtra("PW",user_password);
-
-                                // 화면이동.
-                                startActivity(intent);
-
                             } else {
                                 Toast.makeText(getApplicationContext(), "다시 입력해 주세요.", Toast.LENGTH_SHORT).show();
                             }
@@ -138,6 +141,44 @@ public class LoginActivity extends AppCompatActivity {
                         // 잘 연결됐는지 log출력
                         try {
                             Log.i("MSG" , loginConnection.getResponseMessage());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            if(loginConnection.getResponseCode() == 200) {
+                                InputStream responseBody = loginConnection.getInputStream();
+                                InputStreamReader responseBodyReader = new InputStreamReader(responseBody, "UTF-8");
+                                BufferedReader bufferedReader = new BufferedReader(responseBodyReader);
+                                StringBuilder buffer = new StringBuilder();
+                                while ((str = bufferedReader.readLine()) != null) {
+                                    buffer.append(str);
+                                }
+
+                                receiveMsg = buffer.toString();
+                                Log.i("receiveMsg : ", receiveMsg);
+                                bufferedReader.close();
+
+                                try {
+                                    JSONObject jObject = new JSONObject(receiveMsg);
+                                    String userType = jObject.getString("userType");
+                                    Log.i("userType : ", userType);
+
+                                    intent.putExtra("userType", userType);
+
+                                    if(userType.equals("사용자")) {
+                                        startActivity(intent2);
+                                    } else {
+                                        startActivity(intent);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            } else {
+                                Log.i("결과", loginConnection.getResponseCode() + "Error");
+                            }
+                        } catch (MalformedURLException e) {
+                            e.printStackTrace();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

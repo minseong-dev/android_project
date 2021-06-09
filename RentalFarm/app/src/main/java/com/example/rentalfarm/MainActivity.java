@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        Intent intents = getIntent();
 //        String zone_id = intents.getExtras().getString("zone_id");
+
         String zone_id = "10";
 
         final TextView main_label = (TextView) findViewById(R.id.main_label);
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 String chat_img = obj.getString("chat_img");
                 String type_sent = obj.getString("type_sent");
                 if (chat_img == "null") {
-                    String str = chat_text;
+                    String str = type_sent + ": " + chat_text;
 
                     datas.add(str);
 

@@ -18,18 +18,18 @@
         android:theme="@style/Theme.RentalFarm">
 
         <activity android:name=".LoginActivity">
-
-        </activity>
-
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".SectionActivity" />
-        <activity android:name=".InformationActivity" />
-        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".SectionActivity" />
+        <activity android:name=".InformationActivity" />
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustNothing">
         </activity>
         <activity android:name=".Camera" />
 

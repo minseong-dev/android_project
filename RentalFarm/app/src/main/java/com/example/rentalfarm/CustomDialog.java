@@ -62,6 +62,7 @@ public class CustomDialog extends AppCompatActivity {
                  커스텀 다이얼로그에서 입력한 메시지를 대입한다. */
 
                 main_label.setText(crop_name.getText().toString());
+                System.out.println(crop_name.getText().toString());
                 Toast.makeText(context, "\"" +  crop_name.getText().toString() + "\" 을 입력하였습니다.", Toast.LENGTH_SHORT).show();
 
                 AsyncTask.execute(new Runnable() {

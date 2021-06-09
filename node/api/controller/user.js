@@ -45,14 +45,16 @@ class user {
                 let zoneInfo = await db('select * from zone where farm_id=?', [farm_id])
                 mainInfo = {
                     farmInfo : farmInfo,
-                    zoneInfo : zoneInfo
+                    zoneInfo : zoneInfo,
+                    userType : user_type
                 }
             }
             
             else if (user_type == '사용자') {
                 let zoneInfo = await db('select * from zone where user_id=?', [user_id])
                 mainInfo = {
-                    zoneInfo : zoneInfo
+                    zoneInfo : zoneInfo,
+                    userType : user_type 
                 }
             }
             
