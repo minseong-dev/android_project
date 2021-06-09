@@ -24,5 +24,6 @@ router.patch('/zone', farm.status_update);
 router.post('/zone/chat', farm.chat);
 
 /* 채팅 최신화 */
+router.post('/zone/chatting', farm.chatting);
 
 module.exports = router;
