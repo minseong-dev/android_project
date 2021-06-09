@@ -197,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 // URL 원하는 변수명.
                 URL url = null;
                 try {
-                    url = new URL("http://192.168.0.7:3000/farm/zone/chat/");
+                    url = new URL("http://" + LoginActivity.ip + ":3000/farm/zone/chat/");
                     // catch 예외처리
                 } catch (MalformedURLException e) {
                     e.printStackTrace();

@@ -19,7 +19,7 @@ public class Task extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
         URL url = null;
         try{
-            url = new URL("http://192.168.0.7:3000/farm/zone/chatting?zone_id=10");
+            url = new URL("http://" + LoginActivity.ip + ":3000/farm/zone/chatting?zone_id=10");
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8");
