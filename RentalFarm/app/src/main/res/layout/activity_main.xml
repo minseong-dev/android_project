@@ -25,7 +25,8 @@
             android:clickable="false"
             android:focusable="false"
             android:longClickable="false"
-            android:text="민성이네 농장"
+            android:text="혜정이네 농장"
+
             android:textColor="@color/black"
             android:textSize="30dp"
             android:textStyle="bold" />

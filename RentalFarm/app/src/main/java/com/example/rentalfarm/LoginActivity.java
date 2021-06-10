@@ -31,7 +31,7 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity {
     // 와이파이 변경 시 ip주소 바꿔줄 것.
-    static String ip = "192.168.0.73";
+    static String ip = "192.168.0.7";
 
     // loginInfo
     private String str, receiveMsg;
@@ -163,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
                                     String userType = jObject.getString("userType");
                                     Log.i("userType : ", userType);
 
-                                    intent.putExtra("userType", userType);
+                                    intent2.putExtra("userType", userType);
 
                                     if(userType.equals("사용자")) {
                                         startActivity(intent2);

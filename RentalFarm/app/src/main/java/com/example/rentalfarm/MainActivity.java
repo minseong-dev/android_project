@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     Timer timer = new Timer();
     TextView contract_date;
     TextView crop_name;
+    String userType;
 
 
     @Override
@@ -54,6 +55,18 @@ public class MainActivity extends AppCompatActivity {
 
 //        Intent intents = getIntent();
 //        String zone_id = intents.getExtras().getString("zone_id");
+        Intent intents = getIntent();
+
+        try {
+            userType = intents.getExtras().getString("userType");
+        } catch (Exception e) {
+
+        }
+
+        if (userType == null) {
+            userType = "관리자";
+        }
+
 
         String zone_id = "10";
 
@@ -86,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 chatting();
             }
-        }, 0, 4000);
+        }, 0, 3000);
 
     }
 
@@ -185,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
     public void clickBtn(View view) {
 
         String zone_id = "10";
-        String type_sent = "사용자";
+        String type_sent = userType;
         String chat_type = "text";
         String chat_text = input_msg.getText().toString();
         String date_sent = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
@@ -259,7 +272,13 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                input_msg.setText("");
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        input_msg.setText("");
+                    }
+                });
 
             }
         });
