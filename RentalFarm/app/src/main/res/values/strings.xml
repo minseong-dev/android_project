@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Rental Farm</string>
+    <string name="can_not_find_pairing_button"><u>chatview</u></string>
 </resources>

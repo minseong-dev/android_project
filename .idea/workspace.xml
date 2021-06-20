@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="71eeca68-2b4b-46b8-ba60-97753df0bf23" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/res/xml/file_paths.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/CustomDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MediaScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/MediaScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/SignupActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/app/src/main/java/com/example/rentalfarm/SignupActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RentalFarm/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/RentalFarm/build.gradle" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/Users/yangsangchu/.android/avd/Android_Class.avd]" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1su9LyNFwzKuAU5yslt2iXoe1l1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="external.system.task.project.file.to.start" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDK Location" />
+    <property name="project.structure.proportion" value="0.17" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="RunManager">
+    <configuration name="/Users/yangsangchu/Desktop/양상추/Study/3/Android Studio Sorce/android_project" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" value="" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="71eeca68-2b4b-46b8-ba60-97753df0bf23" name="Default Changelist" comment="" />
+      <created>1621711556023</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1621711556023</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621711636801">
+      <screen x="0" y="25" width="1440" height="819" />
+    </state>
+    <state x="184" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.819@0.25.1440.819" timestamp="1621711636801" />
+    <state x="951" y="252" key="AndroidCreateXmlResourceDialog" timestamp="1622622505070">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state x="951" y="251" key="AndroidCreateXmlResourceDialog/0.25.1440.819@0.25.1440.819" timestamp="1621711826237" />
+    <state x="951" y="252" key="AndroidCreateXmlResourceDialog/0.25.1440.822@0.25.1440.822" timestamp="1622622505070" />
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom" timestamp="1622624200987">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.0.bottom/0.25.1440.822@0.25.1440.822" timestamp="1622624200987" />
+    <state width="1398" height="210" key="GridCell.Tab.0.center" timestamp="1622624200982">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.0.center/0.25.1440.822@0.25.1440.822" timestamp="1622624200982" />
+    <state width="1398" height="210" key="GridCell.Tab.0.left" timestamp="1622624200978">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.0.left/0.25.1440.822@0.25.1440.822" timestamp="1622624200978" />
+    <state width="1398" height="210" key="GridCell.Tab.0.right" timestamp="1622624200986">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state width="1398" height="210" key="GridCell.Tab.0.right/0.25.1440.822@0.25.1440.822" timestamp="1622624200986" />
+    <state x="144" y="93" key="MergeDialog" timestamp="1622621338186">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state x="144" y="93" key="MergeDialog/0.25.1440.822@0.25.1440.822" timestamp="1622621338186" />
+    <state x="320" y="173" key="Vcs.Push.Dialog.v2" timestamp="1622621301418">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state x="320" y="173" key="Vcs.Push.Dialog.v2/0.25.1440.822@0.25.1440.822" timestamp="1622621301418" />
+    <state x="521" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1622621321576">
+      <screen x="0" y="25" width="1440" height="822" />
+    </state>
+    <state x="521" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.822@0.25.1440.822" timestamp="1622621321576" />
+  </component>
+</project>
